@@ -1,0 +1,56 @@
+name: RD-PROD
+
+on:
+  workflow_dispatch:
+  
+## Please change the project name to your Blackdcuk project here
+env:
+     bd-project: test-shetrak
+     version: Python--version1
+jobs:
+
+  python-build:
+
+    runs-on: [ roadkit ]
+
+    steps:
+    
+    - uses: actions/checkout@v2
+    - name: Set up JDK 17
+      uses: actions/setup-java@v1
+      with:
+        java-version: '17'
+
+    - name: Install Python 3
+      uses: actions/setup-python@v2
+      with:
+          python-version:  '3.9'
+
+    - name: Install dependencies
+      run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+         java-version: '11'
+         distribution: 'temurin'
+
+    - name: blackduck scan - RD-prod
+      run: bash <(curl -s https://detect.synopsys.com/detect9.sh) 
+             --blackduck.url=https://bdscan-rd.i.mercedes-benz.com/
+             --blackduck.api.token="${{secrets.BD_RD_PROD_TOKEN}}"
+             --detect.project.name="${{ env.bd-project}}"
+             --detect.project.version.name="${{env.version}}-python"
+             --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}-test"
+             --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING
+             --detect.blackduck.signature.scanner.upload.source.mode=true
+             --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
+           
+ 
+       
+           
+           
