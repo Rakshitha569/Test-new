@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
   
 env:
-     detect: https://detect.synopsys.com/detect9.sh
+     detect: https://detect.synopsys.com/detect7.sh
      bd-url: https://bdscan-rd-int.i.mercedes-benz.com/ 
      bd-token: ${{secrets.BD_RD_INT_SCAN}}
-     bd-project: test-shetrak
+     bd-project: Large_scan_test
      version: PYTHON--Version1
      cl: after-upgrade-2024.4.0
      OPTION :  --detect.timeout=1800 --blackduck.timeout="300" --detect.policy.check.fail.on.severities=ALL --detect.report.timeout="200000" --detect.notices.report=true 
