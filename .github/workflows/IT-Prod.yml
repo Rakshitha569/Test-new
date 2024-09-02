@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
   
 ## Please change the project name to your Blackdcuk project here
-env:
-     bd-project: GHA-BD-Scan-Test
-     version: Python--version1
+# env:
+#      bd-project: GHA-BD-Scan-Test
+#      version: Python--version1
 
 jobs:
   build-scan:
@@ -39,9 +39,13 @@ jobs:
         run: bash <(curl -s https://detect.synopsys.com/detect8.sh) 
            --blackduck.url=https://bdscan.i.mercedes-benz.com/
            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
-           --detect.project.name="${{ env.bd-project}}"
-           --detect.project.version.name="${{env.version}}"
-           --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
+           --blackduck.timeout="300" 
+           --detect.blackduck.scan.mode=RAPID
+           
+           
+#            --detect.project.name="${{ env.bd-project}}"
+#            --detect.project.version.name="${{env.version}}"
+#            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
            
 #       - name: blackduck scan
 #         run: bash <(curl -s https://detect.synopsys.com/detect8.sh) 
