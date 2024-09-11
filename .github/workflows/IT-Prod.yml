@@ -45,7 +45,7 @@ jobs:
           fi
       - name: blackduck scan2
         env:
-          PROJECT_DIR: .
+          version: .
         run: |
           bash <(curl -s https://detect.synopsys.com/detect8.sh)
           --blackduck.url="https://bdscan.i.mercedes-benz.com/"
@@ -54,7 +54,7 @@ jobs:
           --blackduck.timeout="1800"
           --detect.project.name="${{ secrets.BD_PROJ_NAME1 }}"
           --detect.project.version.name="test"
-          --detect.source.path="$PROJECT_DIR"
+          --detect.source.path="${{env.version}}"
            
 
 
