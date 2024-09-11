@@ -51,7 +51,7 @@ jobs:
           --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
           --blackduck.timeout="1800"
           --detect.project.name="${{ secrets.BD_PROJ_NAME }}"
-          --detect.project.version.name="${{ secrets.BD_PROJ_NAME }}"
+          --detect.project.version.name="test"
           --detect.blackduck.scan.mode="${{env.SCAN_MODE}}"
           --detect.source.path="$PROJECT_DIR"
            
