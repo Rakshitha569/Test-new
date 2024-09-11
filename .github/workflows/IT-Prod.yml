@@ -43,14 +43,12 @@ jobs:
                SCAN_MODE="INTELLIGENT"
                echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
           fi
-      - name: blackduck scan
-        run: |
           bash <(curl -s https://detect.synopsys.com/detect8.sh)
           --blackduck.url="https://bdscan.i.mercedes-benz.com/"
           --blackduck.trust.cert=true
           --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
           --blackduck.timeout="1800"
-          --detect.project.name="${{ secrets.BD_PROJ_NAME }}"
+          --detect.project.name="${{ secrets.BD_PROJ_NAME1 }}"
           --detect.project.version.name="test"
           --detect.blackduck.scan.mode="${{env.SCAN_MODE}}"
           --detect.source.path="$PROJECT_DIR"
