@@ -35,14 +35,14 @@ jobs:
          java-version: '11'
          distribution: 'temurin'
     
-      - name: blackduck scan
-        run: |
-          echo "Branch name provided in input = ${{ github.ref }}"
-          if [ "${{ github.ref }}" != *"main"* ]; then
-               echo "main branch selected"
-               SCAN_MODE="INTELLIGENT"
-               echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
-          fi
+#       - name: blackduck scan
+#         run: |
+#           echo "Branch name provided in input = ${{ github.ref }}"
+#           if [ "${{ github.ref }}" != *"main"* ]; then
+#                echo "main branch selected"
+#                SCAN_MODE="INTELLIGENT"
+#                echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
+#           fi
       - name: blackduck scan2
         run: |
           bash <(curl -s https://detect.synopsys.com/detect8.sh)
@@ -59,24 +59,3 @@ jobs:
 
            
            
-#            --detect.project.name="${{ env.bd-project}}"
-#            --detect.project.version.name="${{env.version}}"
-#            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
-           
-#       - name: blackduck scan
-#         run: bash <(curl -s https://detect.synopsys.com/detect8.sh) 
-#            --blackduck.url=https://bdscan.i.mercedes-benz.com/
-#            --blackduck.api.token="${{secrets.BLACKDUCK_API_TOKEN}}"
-#            --detect.project.name="${{ env.bd-project}}"
-#            --detect.project.version.name="${{env.version}}"
-#            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
-#            --detect.python.path=
-#            --detect.pip.path=
-#            --detect.pipfile.dependency.types.excluded=NONE,DEV 
-#            --detect.pip.requirements.path
-#            --detect.pipenv.path=""
-#            --detect.pip.project.name
-#            --detect.pip.project.version.name=
-           
-          
- 
