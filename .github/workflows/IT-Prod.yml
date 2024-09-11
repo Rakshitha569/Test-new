@@ -45,7 +45,7 @@ jobs:
           fi
           echo "Scan mode selected $SCAN_MODE"
           echo "bd-scan starts"
-          bash -c "$(curl -s https://detect.synopsys.com/detect8.sh)"
+          bash < (curl -s https://detect.synopsys.com/detect8.sh)"
           --blackduck.url="https://bdscan.i.mercedes-benz.com/"
           --blackduck.trust.cert=true
           --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
