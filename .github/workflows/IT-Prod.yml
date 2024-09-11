@@ -46,7 +46,7 @@ jobs:
       - name: blackduck scan2
         shell: bash
         run: |
-          bash <(curl -s https://detect.synopsys.com/detect8.sh)
+          bash <(curl -s https://detect.synopsys.com/detect9.sh)
           --blackduck.url="https://bdscan.i.mercedes-benz.com/"
           --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
           --blackduck.timeout="1800"
