@@ -47,6 +47,8 @@ jobs:
           
           
       - name: blackduck scan2
+        env:
+          PROJ_DIR: "." 
         if: always()
         shell: bash
         run: bash <(curl -s https://detect.synopsys.com/detect9.sh)
@@ -54,7 +56,9 @@ jobs:
           --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
           --blackduck.timeout="1800"
           --detect.project.name="${{ secrets.BD_PROJ_NAME1 }}"
-          --detect.project.version.name="test4"
+          --detect.project.version.name="test5"
+          --detect.blackduck.scan.mode="$SCAN_MODE"
+          --detect.source.path="$PROJ_DIR"
 
       - name: blackduck scan3
         if: always()
