@@ -35,15 +35,19 @@ jobs:
          java-version: '11'
          distribution: 'temurin'
     
-#       - name: blackduck scan
-#         run: |
-#           echo "Branch name provided in input = ${{ github.ref }}"
-#           if [ "${{ github.ref }}" != *"main"* ]; then
-#                echo "main branch selected"
-#                SCAN_MODE="INTELLIGENT"
-#                echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
-#           fi
+      - name: blackduck scan
+        if: always()
+        run: |
+          echo "Branch name provided in input = ${{ github.ref }}"
+          if [ "${{ github.ref }}" != *"main"* ]; then
+               echo "main branch selected"
+               SCAN_MODE="INTELLIGENT"
+               echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
+          fi
+          
+          
       - name: blackduck scan2
+        if: always()
         shell: bash
         run: bash <(curl -s https://detect.synopsys.com/detect9.sh)
           --blackduck.url="https://bdscan.i.mercedes-benz.com/"
