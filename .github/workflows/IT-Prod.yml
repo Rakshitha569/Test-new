@@ -55,7 +55,27 @@ jobs:
           --blackduck.timeout="1800"
           --detect.project.name="${{ secrets.BD_PROJ_NAME1 }}"
           --detect.project.version.name="test"
-         
+
+      - name: blackduck scan3
+        if: always()
+        shell: bash
+        run: |
+          echo "Branch name provided in input = ${{ github.ref }}"
+          if [ "${{ github.ref }}" != *"main"* ]; then
+               echo "main branch selected"
+               SCAN_MODE="INTELLIGENT"
+               echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
+          fi
+          PROJ_DIR=.
+          echo "PROJ_DIR=$PROJ_DIR" >> $GITHUB_ENV
+          bash -c "$(curl -s https://detect.synopsys.com/detect8.sh)"
+          --blackduck.url="https://bdscan.i.mercedes-benz.com/"
+          --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
+          --blackduck.timeout="1800"
+          --detect.project.name="${{ secrets.BD_PROJ_NAME1 }}"
+          --detect.project.version.name="test"
+          --detect.blackduck.scan.mode="$SCAN_MODE"
+          --detect.source.path="$PROJ_DIR"
            
 
 
