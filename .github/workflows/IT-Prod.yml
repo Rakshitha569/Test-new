@@ -36,11 +36,29 @@ jobs:
          distribution: 'temurin'
     
       - name: blackduck scan
-        run: bash <(curl -s https://detect.synopsys.com/detect8.sh) 
-           --blackduck.url=https://bdscan.i.mercedes-benz.com/
-           --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
-           --blackduck.timeout="300" 
-           --detect.blackduck.scan.mode=RAPID
+        run: |
+          echo "Branch name provided in input = ${{ github.ref }}"
+          if [ "${{ github.ref }}" != *"main"* ]; then
+               echo "main branch selected"
+               SCAN_MODE="INTELLIGENT"
+               echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
+          fi
+          echo "Scan mode selected $SCAN_MODE"
+          echo "bd-scan starts"
+          bash -c "$(curl -s https://detect.synopsys.com/detect8.sh)"
+          --blackduck.url="https://bdscan.i.mercedes-benz.com/"
+          --blackduck.trust.cert=true
+          --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
+          --blackduck.timeout="1800"
+          --detect.project.name="${{ secrets.BD_PROJ_NAME }}"
+          --detect.project.version.name="${{ secrets.BD_PROJ_NAME }}"
+          --detect.blackduck.scan.mode="${{env.SCAN_MODE}}"
+          --detect.source.path="$PROJECT_DIR"
+           
+
+
+
+
            
            
 #            --detect.project.name="${{ env.bd-project}}"
