@@ -1,7 +1,0 @@
-version: testscan
-policy:
-  overrides:
-  - policyName: High Severity Security Policy Rule
-    components:
-    - name: fastapi
-      version: 0.1.0
