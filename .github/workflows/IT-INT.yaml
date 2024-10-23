@@ -6,8 +6,10 @@ on:
 #     - cron: "5 * * * *"
 
 env:
-     bd-project: test-shetrak
-     version: PYTHON--v1
+     bd-project: BD-Compare-Test
+     version: python-test
+     cl: comparision-test  
+     bd-url: "https://bdscan-int.i.mercedes-benz.com"
 
 jobs:
   build-scan:
@@ -43,6 +45,5 @@ jobs:
            --detect.project.name="${{ env.bd-project}}"
            --detect.project.version.name="${{env.version}}"
            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
-           --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING
-           --detect.blackduck.signature.scanner.upload.source.mode=true
+
  
