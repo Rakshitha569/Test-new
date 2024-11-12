@@ -6,7 +6,7 @@ on:
 #     - cron: "5 * * * *"
 
 env:
-     bd-project: BD-Compare-Test
+     bd-project: BD_Scan
      version: python-test
      cl: comparision-test  
      bd-url: "https://bdscan-int.i.mercedes-benz.com"
