@@ -7,7 +7,7 @@ on:
 
 env:
      bd-project: BD_Scan
-     version: langchain-0.1.0
+     version: langchain-0.1.0rc1
      bd-url: "https://bdscan-int.i.mercedes-benz.com"
 
 jobs:
