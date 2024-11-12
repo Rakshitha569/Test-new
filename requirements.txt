@@ -1,2 +1,2 @@
-langchain-chroma==0.1.4
+langchain-chroma==0.1.0
 
