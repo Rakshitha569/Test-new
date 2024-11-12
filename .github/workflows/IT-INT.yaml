@@ -7,8 +7,7 @@ on:
 
 env:
      bd-project: BD_Scan
-     version: python-test
-     cl: comparision-test  
+     version: langchain-0.1.1
      bd-url: "https://bdscan-int.i.mercedes-benz.com"
 
 jobs:
