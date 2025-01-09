@@ -1,4 +1,4 @@
-name: IT-INT
+name: IT-PROD
 
 on: 
   workflow_dispatch:
@@ -37,10 +37,10 @@ jobs:
          java-version: '11'
          distribution: 'temurin'
     
-      - name: IT - INT
+      - name: IT - PROD
         run: bash <(curl -s https://detect.synopsys.com/detect9.sh) 
            --blackduck.url=https://bdscan.i.mercedes-benz.com/
-           --blackduck.api.token="${{secrets.BD_IT_PROD_SCAN}}"
+           --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
            --detect.project.name="${{ env.bd-project}}"
            --detect.project.version.name="${{env.version}}"
            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
