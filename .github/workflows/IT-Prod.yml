@@ -44,3 +44,5 @@ jobs:
            --detect.project.name="${{ env.bd-project}}"
            --detect.project.version.name="${{env.version}}"
            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
+           --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
+           
