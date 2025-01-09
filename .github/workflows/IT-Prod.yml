@@ -1,17 +1,19 @@
-name: IT-Prod
-
+name: IT-INT
 
 on: 
   workflow_dispatch:
-  
-## Please change the project name to your Blackdcuk project here
-# env:
-#      bd-project: GHA-BD-Scan-Test
-#      version: Python--version1
+#   schedule:
+#     - cron: "5 * * * *"
+
+env:
+     bd-project: Shetrak_bd_scan
+     version: bd_scan_python
+     bd-url: "https://bdscan.i.mercedes-benz.com"
 
 jobs:
   build-scan:
-    runs-on: [ road-runner ]
+    runs-on: [ small ]
+   
     steps:
       - uses: actions/checkout@v2
       
@@ -25,9 +27,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: run python
-        run : |
-               python application.py
+#       - name: run python
+#         run : |
+#                python application.py
                
       - name: Set up JDK 11
         uses: actions/setup-java@v3
@@ -35,55 +37,10 @@ jobs:
          java-version: '11'
          distribution: 'temurin'
     
-      - name: blackduck scan
-        if: always()
-        run: |
-          echo "Branch name provided in input = ${{ github.ref }}"
-          if [ "${{ github.ref }}" != *"main"* ]; then
-               echo "main branch selected"
-               SCAN_MODE="INTELLIGENT"
-               echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
-          fi
-          
-          
-      - name: blackduck scan2
-        env:
-          PROJ_DIR: "." 
-        if: always()
-        shell: bash
-        run: bash <(curl -s https://detect.synopsys.com/detect9.sh)
-          --blackduck.url="https://bdscan.i.mercedes-benz.com/"
-          --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
-          --blackduck.timeout="1800"
-          --detect.project.name="${{ secrets.BD_PROJ_NAME1 }}"
-          --detect.project.version.name="test5"
-          --detect.blackduck.scan.mode="$SCAN_MODE"
-          --detect.source.path="$PROJ_DIR"
-
-      - name: blackduck scan3
-        if: always()
-        shell: bash
-        run: |
-          echo "Branch name provided in input = ${{ github.ref }}"
-          if [ "${{ github.ref }}" != *"main"* ]; then
-               echo "main branch selected"
-               SCAN_MODE="INTELLIGENT"
-               echo "SCAN_MODE=$SCAN_MODE" >> $GITHUB_ENV
-          fi
-          PROJ_DIR="."
-          echo "PROJ_DIR=$PROJ_DIR" >> $GITHUB_ENV
-          bash -c "$(curl -s https://detect.synopsys.com/detect8.sh)"
-          --blackduck.url="https://bdscan.i.mercedes-benz.com/"
-          --blackduck.api.token="${{ secrets.BD_IT_PROD_TOKEN }}"
-          --blackduck.timeout="1800"
-          --detect.project.name="${{ secrets.BD_PROJ_NAME1 }}"
-          --detect.project.version.name="test5"
-          --detect.blackduck.scan.mode="$SCAN_MODE"
-          --detect.source.path="$PROJ_DIR"
-           
-
-
-
-
-           
-           
+      - name: IT - INT
+        run: bash <(curl -s https://detect.synopsys.com/detect9.sh) 
+           --blackduck.url=https://bdscan.i.mercedes-benz.com/
+           --blackduck.api.token="${{secrets.BD_IT_PROD_SCAN}}"
+           --detect.project.name="${{ env.bd-project}}"
+           --detect.project.version.name="${{env.version}}"
+           --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
