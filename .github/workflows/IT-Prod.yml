@@ -36,13 +36,25 @@ jobs:
         with:
          java-version: '11'
          distribution: 'temurin'
-    
-      - name: IT - PROD
-        run: bash <(curl -s https://detect.synopsys.com/detect9.sh) 
-           --blackduck.url=https://bdscan.i.mercedes-benz.com/
-           --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
-           --detect.project.name="${{ env.bd-project}}"
-           --detect.project.version.name="${{env.version}}"
-           --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
-           --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
+      
+      - name: Black Duck SCA Scan
+        uses: blackduck-inc/black-duck-security-scan@v2.0.0
+        env:
+            DETECT_PROJECT_NAME: Shetrak_bd_scan
+            DETECT_PROJECT_VERSION_NAME: bd-security-action-rs
+            DETECT_SOURCE_PATH: .
+        with:
+          blackducksca_url: https://bdscan.i.mercedes-benz.com
+          blackducksca_token: ${{ secrets.BD_IT_PROD_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          blackducksca_scan_full: false
+          
+#       - name: IT - PROD
+#         run: bash <(curl -s https://detect.synopsys.com/detect9.sh) 
+#            --blackduck.url=https://bdscan.i.mercedes-benz.com/
+#            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
+#            --detect.project.name="${{ env.bd-project}}"
+#            --detect.project.version.name="${{env.version}}"
+#            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
+#            --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
            
