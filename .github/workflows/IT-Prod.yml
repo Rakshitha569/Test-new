@@ -48,6 +48,8 @@ jobs:
           blackducksca_token: ${{ secrets.BD_IT_PROD_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           blackducksca_scan_full: false
+          blackducksca_scan_failure_severities: ALL
+          
           
 #       - name: IT - PROD
 #         run: bash <(curl -s https://detect.synopsys.com/detect9.sh) 
