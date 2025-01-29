@@ -1,11 +1,6 @@
 anyio==1.1.0
 fastapi==0.1.0
 bash==0.2
-requests
-beautifulsoup4
-requests==2.19.1
-flask==0.12.2
-pyagrum
-matplotlib
+
 
 
