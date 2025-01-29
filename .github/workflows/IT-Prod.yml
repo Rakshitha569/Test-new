@@ -42,7 +42,6 @@ jobs:
         env:
             DETECT_PROJECT_NAME: Shetrak_bd_scan
             DETECT_PROJECT_VERSION_NAME: bd-security-action-rs
-            DETECT_SOURCE_PATH: .
         with:
           blackducksca_url: https://bdscan.i.mercedes-benz.com
           blackducksca_token: ${{ secrets.BD_IT_PROD_TOKEN }}
