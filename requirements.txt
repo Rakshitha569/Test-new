@@ -1,5 +1,5 @@
 anyio==1.1.0
-fastapi==0.1.0
+fastapi==0.115.7
 bash==0.2
 
 
