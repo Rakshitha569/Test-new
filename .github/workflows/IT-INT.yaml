@@ -6,8 +6,9 @@ on:
 #     - cron: "5 * * * *"
 
 env:
-     bd-project: BD_Scan
-     version: langchain-0.1.0rc1
+#      bd-project: BD_Scan
+     bd-project: BD-Training-Demo
+     version: PythonGHATest
      bd-url: "https://bdscan-int.i.mercedes-benz.com"
 
 jobs:
@@ -38,7 +39,7 @@ jobs:
          distribution: 'temurin'
     
       - name: IT - INT
-        run: bash <(curl -s https://detect.synopsys.com/detect9.sh) 
+        run: bash <(curl -s https://detect.blackduck.com/detect10.sh) 
            --blackduck.url=https://bdscan-int.i.mercedes-benz.com/
            --blackduck.api.token="${{secrets.BD_IT_INT_SCAN}}"
            --detect.project.name="${{ env.bd-project}}"
