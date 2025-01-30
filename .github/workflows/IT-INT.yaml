@@ -37,13 +37,19 @@ jobs:
         with:
          java-version: '11'
          distribution: 'temurin'
+         
+      - name: Run the scans
+        shell: bash
+        run: |
+           df -hT
+           
     
-      - name: IT - INT
-        run: bash <(curl -s https://detect.blackduck.com/detect10.sh) 
-           --blackduck.url=https://bdscan-int.i.mercedes-benz.com/
-           --blackduck.api.token="${{secrets.BD_IT_INT_SCAN}}"
-           --detect.project.name="${{ env.bd-project}}"
-           --detect.project.version.name="${{env.version}}"
-           --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
+#       - name: IT - INT
+#         run: bash <(curl -s https://detect.blackduck.com/detect10.sh) 
+#            --blackduck.url=https://bdscan-int.i.mercedes-benz.com/
+#            --blackduck.api.token="${{secrets.BD_IT_INT_SCAN}}"
+#            --detect.project.name="${{ env.bd-project}}"
+#            --detect.project.version.name="${{env.version}}"
+#            --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
 
  
