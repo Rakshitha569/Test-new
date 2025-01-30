@@ -43,6 +43,7 @@ jobs:
         run: |
            df -hT
            pwd
+           du -sh /home/runner/actions-runner/_work/Python_BD/Python_BD
            
     
 #       - name: IT - INT
