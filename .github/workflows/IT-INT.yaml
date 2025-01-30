@@ -42,6 +42,7 @@ jobs:
         shell: bash
         run: |
            df -hT
+           pwd
            
     
 #       - name: IT - INT
