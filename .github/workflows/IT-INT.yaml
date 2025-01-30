@@ -8,7 +8,7 @@ on:
 env:
 #      bd-project: BD_Scan
      bd-project: BD-Training-Demo
-     version: PythonGHATest
+     version: PythonGHATest-Demo
      bd-url: "https://bdscan-int.i.mercedes-benz.com"
 
 jobs:
