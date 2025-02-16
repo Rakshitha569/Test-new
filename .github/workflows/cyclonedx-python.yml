@@ -1,4 +1,4 @@
-name: cyclone-dx
+name: Python-cyclone-dx
 
 on: 
   workflow_dispatch:
