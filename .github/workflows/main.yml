@@ -1,0 +1,27 @@
+name: cyclone-dx
+
+on: 
+  workflow_dispatch:
+#   schedule:
+#     - cron: "5 * * * *"
+
+env:
+     bd-project: Shetrak_bd_scan
+     version: bd_scan_python
+     bd-url: "https://bdscan.i.mercedes-benz.com"
+
+jobs:
+  build-scan:
+    runs-on: [ small ]
+   
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Generate sbom
+        uses: CycloneDX/gh-pythoon-genrrate-sbom@v2
+        with:
+          input: ./requirements.txt
+          output: ./bom.json
+          format: json
+        
+     
