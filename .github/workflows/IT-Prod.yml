@@ -7,7 +7,7 @@ on:
 
 env:
      bd-project: Shetrak_bd_scan
-     version: bd_scan_python_2
+     # version: bd_scan_python_2
      bd-url: "https://bdscan.i.mercedes-benz.com"
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
         uses: blackduck-inc/black-duck-security-scan@v2.0.0
         env:
             DETECT_PROJECT_NAME: Shetrak_bd_scan
-            DETECT_PROJECT_VERSION_NAME: "bd_scan_python_2"
+            DETECT_PROJECT_VERSION_NAME: "bd_scan_python_v1"
         with:
           blackducksca_url: https://bdscan.i.mercedes-benz.com
           blackducksca_token: ${{ secrets.BD_IT_PROD_TOKEN }}
