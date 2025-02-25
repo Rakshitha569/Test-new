@@ -7,7 +7,7 @@ on:
 
 env:
      bd-project: Shetrak_bd_scan
-     version: bd_scan_python_1
+     version: bd_scan_python_2
      bd-url: "https://bdscan.i.mercedes-benz.com"
 
 jobs:
