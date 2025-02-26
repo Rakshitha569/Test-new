@@ -55,7 +55,7 @@ jobs:
            --blackduck.url="https://bdscan.i.mercedes-benz.com/"
            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
            --detect.project.name="${{ env.bd-project}}"
-           --detect.blackduck.scan.mode="RAPID"
+           --detect.project.version.name="test-rapid"
            --detect.code.location.name="${{ env.bd-project}}"
           
            
