@@ -6,7 +6,7 @@ on:
 #     - cron: "5 * * * *"
 
 env:
-     bd-project: Shetrak-bd-scan
+     bd-project: "Shetrak-bd-scan"
      # version: bd_scan_python_2
      bd-url: "https://bdscan.i.mercedes-benz.com"
 
@@ -55,8 +55,7 @@ jobs:
            --blackduck.url="https://bdscan.i.mercedes-benz.com/"
            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
            --detect.project.name="${{ env.bd-project}}"
-           --detect.project.version.name="${{env.version}}"
            --detect.blackduck.scan.mode="RAPID"
-           --detect.code.location.name="${{ env.bd-project}}"-"${{env.version}}"
-           --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
+           --detect.code.location.name="${{ env.bd-project}}"
+          
            
