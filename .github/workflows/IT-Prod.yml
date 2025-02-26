@@ -6,7 +6,7 @@ on:
 #     - cron: "5 * * * *"
 
 env:
-     bd-project: Shetrak_bd_scan
+     bd-project: Shetrak-bd-scan
      # version: bd_scan_python_2
      bd-url: "https://bdscan.i.mercedes-benz.com"
 
