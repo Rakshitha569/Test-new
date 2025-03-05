@@ -1,39 +1,40 @@
 ## 📢 Blackduck IT Service Cloud Migration 
 
-We are migrating on-premise BlackDuck instance to a cloud. This migration will improve performance, scalability, and security. 
-To ensure a smooth transition, this document outlines the necessary steps that users need to take and the overall migration plan.
-
 ### Migration Details:
 Migration Date:  <br/>
 Downtime Window: <br/>
 
+### What is migrated ?
+All data present in on-prem instance till the migration date, this includes projects, scans, groups, users, api tokens.
 
-### Required User Actions:
-- **Update the Integrations: <br/>**
-Update any scripts, CI/CD pipelines, or tools that point to the current on-premise BlackDuck instance. <br/>
-BlackDuck Cloud URL: https://mercedes-benz.app.blackduck.com/
+### Immediate Action required by user before migration 
+1. If you are using GitHub road-runners for your blackduck scans - no action required.
+2. If you use any other self hosted runners/machine which requires firewall clearance, please ensure the below domain/ip is whitelisted 
+- IP Address: 104.18.39.43
+- Domain Name: mercedes-benz.app.blackduck.com <br/>
 
-- **Review and Adjust Firewall and Network Policies:  <br/>**
-Please test your accessibility to the new blackduck cloud instance and if required ensured that the new IP address  and domain name are whitelisted in your firewall settings. <br/>
-IP Address: <br/>
-Domain Name: <br/>
+__⚠️**Note: Please don't update your workflows to point to cloud url prior to migration date.**__
 
-- **Reconfigure Integration and API Endpoints: <br/>**
-If you have automated integrations, API calls, or scripts pointing to the old BlackDuck instance, update them to use the new domain.
+### Action required after migration to cloud:
+- **Verify your existing data: <br/>**
+Please login to https://mercedes-benz.app.blackduck.com and verify if existing projects, scans, user group data are present as expected.
+- **Update the CI/CD pipelines <br/>**
+Update blackudck url  in your existing workflows/ configurations from https://bdscan.i.mercedes-benz.com/  to  new domain  https://mercedes-benz.app.blackduck.com/ <br/>
+- **Reconfigure custom scripts/ integration end points <br/>**
+Update the blackduck url endpoints in your custom integration scripts from https://bdscan.i.mercedes-benz.com/ to https://mercedes-benz.app.blackduck.com/
+- **Testing: <br/>**
+After reconfiguring scan to new instance,  please ensure scan is successful checking scan logs, login to UI and verify if all data (policies, scan result) is available as expected.
 
-- **Verify Access and Perform Testing: <br/>**
-Please log in to the new BlackDuck cloud instance and please verify that scans, policies, and integrations work as expected.
+__⚠️**Note: The current API tokens will function with the new cloud instance, so users won't need to generate new tokens.**__
 
-### Post-Migration: How Scans and Integrations Work 
-After the BlackDuck Admin Team has migrated all projects and necessary data to the cloud on [INSERT DATE], users will be provided with a grace period of one week to make the necessary changes, such as updating URLs and modifying configurations.
-
-At the end of the grace period, the Admin Team will perform a final synchronization of data from the on-premise instance to the cloud, ensuring that all the latest changes are reflected. After this point, the on-premise instance will be decommissioned, and users must fully operate on the cloud instance.
-![Your paragraph text (4)](https://git.i.mercedes-benz.com/SHETRAKS/Python_BD/assets/1625/475600d5-3c68-4da6-92b7-1c80ab527216)
-
-
+### What happens after migration date?
+1. All new projects, groups requests are onboarded only to cloud instance.
+2. After the migration date, both the on-prem and cloud instances will run in parallel to ensure that no pipelines are disrupted.
+3. Users are provided with a 2 week grace period to ensure that all their workflows are reconfigured to point to the cloud URL "https://mercedes-benz.app.blackduck.com/"
+4. Please note that after the migration, all scans directed to the on-prem instance will not be transferred to the cloud. (After updating the URL to point to the cloud instance in your pipeline, rescanning will update all the scan data.)
+5. The On-prem instance "https://bdscan.i.mercedes-benz.com/" will be decommissioned on March 31st 2025
 
 ### Support and Assistance
 For any issues or concerns, please reach out to the [BlackDuck support team](https://git.i.mercedes-benz.com/foss/BlackDuckSupport/issues). <br/>
-We appreciate your cooperation and support during this migration process.
 
 
