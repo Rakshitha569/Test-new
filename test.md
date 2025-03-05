@@ -1,18 +1,38 @@
 ## 📢 Blackduck IT Service Cloud Migration 
 
-Exciting news! Our Blackduck IT service is set to migrate to the cloud. This significant upgrade aims to enhance system performance, security, and scalability.
+We are migrating on-premise BlackDuck instance to a cloud. This migration will improve performance, scalability, and security. 
+To ensure a smooth transition, this document outlines the necessary steps that users need to take and the overall migration plan.
 
-However, we would like to inform you that the migration has been postponed to March 2025 due to a delay in infrastructure readiness from the vendor. As the new migration date approaches, we will share more details and instructions to ensure a seamless transition. We greatly appreciate your cooperation and support throughout this process.
-
-Please stay tuned to this page for more updates.
-
-Action Items for Blackduck Users:
-Please make any firewall clearance if needed
-IP address:
-New domain name: 
-
-Business Impact :  Users will not be able to perform Blackduck Scan to "https://bdscan.i.mercedes-benz.com/" post March 31st 2025.
+### Migration Details:
+Migration Date:  <br/>
+Downtime Window: <br/>
 
 
+### Required User Actions:
+- **Update the Integrations: <br/>**
+Update any scripts, CI/CD pipelines, or tools that point to the current on-premise BlackDuck instance. <br/>
+BlackDuck Cloud URL: https://mercedes-benz.app.blackduck.com/
+
+- **Review and Adjust Firewall and Network Policies:  <br/>**
+Ensure that the new IP address  and domain name are whitelisted in your firewall settings.
+IP Address: <br/>
+Domain Name: <br/>
+
+- **Reconfigure Integration and API Endpoints: <br/>**
+If you have automated integrations, API calls, or scripts pointing to the old BlackDuck instance, update them to use the new domain.
+
+- **Verify Access and Perform Testing: <br/>**
+Please log in to the new BlackDuck cloud instance and please verify that scans, policies, and integrations work as expected.
+
+### Post-Migration: How Scans and Integrations Work 
+After the BlackDuck Admin Team has migrated all projects and necessary data to the cloud on [INSERT DATE], users will be provided with a grace period of one week to make the necessary changes, such as updating URLs and modifying configurations.
+
+At the end of the grace period, the Admin Team will perform a final synchronization of data from the on-premise instance to the cloud, ensuring that all the latest changes are reflected. After this point, the on-premise instance will be decommissioned, and users must fully operate on the cloud instance.
+![Your paragraph text](https://git.i.mercedes-benz.com/SHETRAKS/Python_BD/assets/1625/88106fc2-7ebf-4981-ac80-e70b32da3417)
+
+
+### Support and Assistance
+For any issues or concerns, please reach out to the [BlackDuck support team](https://git.i.mercedes-benz.com/foss/BlackDuckSupport/issues).
+We appreciate your cooperation and support during this migration process.
 
 
