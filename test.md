@@ -14,7 +14,7 @@ Update any scripts, CI/CD pipelines, or tools that point to the current on-premi
 BlackDuck Cloud URL: https://mercedes-benz.app.blackduck.com/
 
 - **Review and Adjust Firewall and Network Policies:  <br/>**
-Ensure that the new IP address  and domain name are whitelisted in your firewall settings.
+Ensure that the new IP address  and domain name are whitelisted in your firewall settings. <br/>
 IP Address: <br/>
 Domain Name: <br/>
 
@@ -32,7 +32,7 @@ At the end of the grace period, the Admin Team will perform a final synchronizat
 
 
 ### Support and Assistance
-For any issues or concerns, please reach out to the [BlackDuck support team](https://git.i.mercedes-benz.com/foss/BlackDuckSupport/issues).
+For any issues or concerns, please reach out to the [BlackDuck support team](https://git.i.mercedes-benz.com/foss/BlackDuckSupport/issues). <br/>
 We appreciate your cooperation and support during this migration process.
 
 
