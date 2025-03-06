@@ -7,7 +7,7 @@ jobs:
   execute-scan-workflow:
     uses: threatrix/threat-agent-scan/.github/workflows/scan-repo-reusable.yaml@master
     with:
-      app-name: YOUR_PROJECT_NAME
+      app-name: "Docker_scan_test"
       trx-host: https://app.threatrix.io
     secrets:
       TOKEN: ${{ secrets.GITHUB_TOKEN }}
