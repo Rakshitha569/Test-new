@@ -58,5 +58,5 @@ jobs:
            --detect.project.name="${{ env.bd-project}}"
            --detect.project.version.name="Python-test"
            --detect.code.location.name="${{ env.bd-project}}"
-          
+           --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
            
