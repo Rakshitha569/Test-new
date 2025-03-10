@@ -1,17 +1,53 @@
-name: Theatrix
+name: Threatix Security Scan
 
 on:
-  workflow_dispatch:
+ workflow_dispatch:
 
 jobs:
-  execute-scan-workflow:
-    uses: threatrix/threat-agent-scan/.github/workflows/scan-repo-reusable.yaml@master
-    with:
-      app-name: "Docker_scan_test"
-      trx-host: https://app.threatrix.io
-    secrets:
-      TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      THREATRIX_EID: ${{ secrets.THREATRIX_EID }}
-      THREATRIX_OID: ${{ secrets.THREATRIX_OID }}
-      THREATRIX_SERVER_API_KEY: ${{ secrets.THREATRIX_API_KEY }}
-       
+  threatix_security_scan:
+    runs-on: [ road-runner ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version:  '3.9'
+        
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Download Threatix CLI
+        run: |
+          curl -LJO https://github.com/threatrix/threat-matrix/releases/download/agent-release-latest/threat-agent-latest.jar
+
+     
+      - name: Run Threatix Scan
+        run: |
+          java -jar threat-agent-latest.jar --oid=${{ secrets.THREATIX_OID }} \
+                                            --eid=${{ secrets.THREATIX_EID }} \
+                                            --app-name="" \
+                                            --api-key=${{ secrets.THREATRIX_API_KEY  }} \
+                                            ${{ github.workspace }}
+
+      - name: Test scans
+        run: |
+           pwd
+           ls -la
+           
+          
+      # - name: Upload Scan Report 
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: threatix-scan-report
+      #     path: threatix-report.json
