@@ -1,9 +1,8 @@
 fastapi==0.89.1
-Flask==2.3.2
+Flask==0.1.2
 bash==0.2
 urllib3==1.21.1
-pytorch==0.1.2
-
+PyTorch==0.1.2 
 
 
 
