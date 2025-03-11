@@ -32,12 +32,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          
       - name: Run Threatix Scan
         run: |
           java -jar threat-agent-latest.jar --oid=${{ secrets.THREATIX_OID }} \
                                             --eid=${{ secrets.THREATIX_EID }} \
                                             --app-name="Shetrak-Python-GHA-test" \
-                                            ----scpId="=${{ secrets.PYTHON_SCPID }}" \
+                                            --scpId="=${{ secrets.PYTHON_SCPID }}" \
                                             --api-key=${{ secrets.THREATRIX_API_KEY  }} \
                                             ${{ github.workspace }}
 
