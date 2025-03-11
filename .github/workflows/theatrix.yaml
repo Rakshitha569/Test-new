@@ -45,6 +45,8 @@ jobs:
         run: |
            pwd
            ls -la
+           cd logs
+           cat agent.log
            
           
       # - name: Upload Scan Report 
