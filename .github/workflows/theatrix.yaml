@@ -11,8 +11,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-     
-
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
@@ -37,7 +35,7 @@ jobs:
         run: |
           java -jar threat-agent-latest.jar --oid=${{ secrets.THREATIX_OID }} \
                                             --eid=${{ secrets.THREATIX_EID }} \
-                                            --app-name="Python_test" \
+                                            --app-name="Python-march13-shetraktest" \
                                             --api-key=${{ secrets.THREATRIX_API_KEY  }} \
                                             ${{ github.workspace }}
 
