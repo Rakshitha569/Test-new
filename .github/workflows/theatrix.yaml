@@ -19,6 +19,7 @@ jobs:
 
       - name: Download Threatix CLI
         run: |
+          curl -kV https://app.threatrix.io
           curl -LJO https://github.com/threatrix/threat-matrix/releases/download/agent-release-latest/threat-agent-latest.jar
 
       - name: Install Python 3
