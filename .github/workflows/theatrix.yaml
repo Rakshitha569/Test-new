@@ -17,9 +17,18 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Install Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version:  '3.9'
+        
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Download Threatix CLI
         run: |
-          curl -kV https://app.threatrix.io
           curl -LJO https://github.com/threatrix/threat-matrix/releases/download/agent-release-latest/threat-agent-latest.jar
 
       - name: Install Python 3
