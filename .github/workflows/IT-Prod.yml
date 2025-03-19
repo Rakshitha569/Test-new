@@ -54,7 +54,7 @@ jobs:
           
       - name: IT - PROD
         run: bash <(curl -s https://detect.blackduck.com/detect10.sh) 
-           --blackduck.url="https://bdscan.i.mercedes-benz.com/"
+           --blackduck.url="https://mercedes-benz.app.blackduck.com/"
            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
            --detect.project.name="${{ env.bd-project}}"
            --detect.project.version.name="Python-test"
