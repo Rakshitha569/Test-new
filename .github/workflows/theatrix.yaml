@@ -36,7 +36,7 @@ jobs:
         run: |
           java -jar threat-agent-latest.jar --oid=${{ secrets.THREATIX_OID }} \
                                             --eid=${{ secrets.THREATIX_EID }} \
-                                            --app-name="Python-march13-shetraktest" \
+                                            --app-name="Mar19-python-shetrak-test" \
                                             --api-key=${{ secrets.THREATRIX_API_KEY  }} \
                                             ${{ github.workspace }}
 
