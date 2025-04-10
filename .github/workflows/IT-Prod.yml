@@ -36,7 +36,7 @@ jobs:
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          java-version: '11.0.16.1'
           distribution: 'corretto'
 
       - name: Java version
@@ -60,7 +60,7 @@ jobs:
            --blackduck.url="https://mercedes-benz.app.blackduck.com/"
            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN1}}"
            --detect.project.name="${{ env.bd-project}}"
-           --detect.project.version.name="Python-test"
+           --detect.project.version.name="Python-test3"
            --detect.code.location.name="${{ env.bd-project}}"
            --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
            
