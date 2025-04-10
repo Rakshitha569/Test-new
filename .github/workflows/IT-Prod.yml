@@ -14,7 +14,7 @@ env:
 
 jobs:
   build-scan:
-    runs-on: [ small ]
+    runs-on: [ medium ]
    
     steps:
       - uses: actions/checkout@v2
