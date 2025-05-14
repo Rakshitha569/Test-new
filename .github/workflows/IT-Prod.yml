@@ -63,4 +63,5 @@ jobs:
            --detect.project.version.name="Python-test3"
            --detect.code.location.name="${{ env.bd-project}}"
            --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
+           --detect.excluded.detector.types=GIT
            
