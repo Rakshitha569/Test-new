@@ -61,7 +61,7 @@ jobs:
            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN1}}"
            --detect.project.name="${{ env.bd-project}}"
            --detect.project.version.name="Python-test"
-           --detect.code.location.name="${{ env.bd-project}}"
+           --detect.code.location.name="${{ env.bd-project}}-testdate"
            --detect.blackduck.signature.scanner.arguments='--min-scan-interval=0'
            --detect.excluded.detector.types=GIT
            
