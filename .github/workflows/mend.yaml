@@ -4,8 +4,8 @@ on:
  workflow_dispatch:
 
 jobs:
-  threatix_security_scan:
-    runs-on: [ self-hosted ]
+  mend_security_scan:
+    runs-on: [ small ]
 
     steps:
       - name: Checkout Repository
@@ -28,7 +28,7 @@ jobs:
             MEND_URL: https://saas-eu.mend.io/
         run: |
            curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && chmod +x /usr/local/bin/mend
-           mend dep -u 
+           mend dep -u -s "Githubaction-python-template"
      
            
   
