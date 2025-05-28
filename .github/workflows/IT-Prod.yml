@@ -6,8 +6,8 @@ on:
 #     - cron: "5 * * * *"
 
 env:
-     # bd-project: "Shetrak-bd-scan"
-     bd-project: "MendIO-Test"
+     bd-project: "Blackduck-May29-Demo"
+     # bd-project: "MendIO-Test"
      # version: bd_scan_python_2
      # bd-url: "https://bdscan.i.mercedes-benz.com"
      bd-url: "https://mercedes-benz.app.blackduck.com/"
