@@ -28,7 +28,8 @@ jobs:
             MEND_URL: https://saas-eu.mend.io/
         run: |
            curl https://downloads.mend.io/cli/linux_amd64/mend -o /usr/local/bin/mend && chmod +x /usr/local/bin/mend
-           mend dep -u -s "Githubaction-python-template"
+           mend dep -u -e -s "Githubaction-python-template"
+           mend code --snippet-size 10 -u -s "Githubaction-python-template"
      
            
   
