@@ -3,7 +3,7 @@ name: IT-PROD
 on: 
   workflow_dispatch:
   schedule:
-    - cron: "39 6 * * *"
+    - cron: "39 06 * * *"
     
 #   schedule:
 #     - cron: "5 * * * *"
