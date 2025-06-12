@@ -9,7 +9,7 @@ on:
 #     - cron: "5 * * * *"
 
 env:
-     bd-project: "Blackduck-May29-Demo"
+     bd-project: "Checkmarx-Test"
      # bd-project: "MendIO-Test"
      # version: bd_scan_python_2
      # bd-url: "https://bdscan.i.mercedes-benz.com"
