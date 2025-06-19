@@ -1,0 +1,26 @@
+name: Checkmarx Docker Scan
+on:
+  workflow_dispatch:
+  
+  # push:
+  #   branches:
+  #     - main
+  #     - master
+  #     - dev
+  
+jobs:
+  build:
+    runs-on: [ medium ]    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Checkmarx One CLI Action
+        uses: checkmarx/ast-github-action@main #Github Action version
+        with:
+          project_name: "SOPRADE-alpine"
+          cx_tenant: ${{ secrets.CX_TENANT_ID }}
+          base_uri: "https://eu-2.ast.checkmarx.net/"
+          cx_client_id: ${{ secrets.CX_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+          additional_params: --scan-types container-security
