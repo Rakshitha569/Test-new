@@ -18,7 +18,7 @@ jobs:
       - name: Checkmarx One CLI Action
         uses: checkmarx/ast-github-action@main #Github Action version
         with:
-          project_name: "SOPRADE-alpine"
+          project_name: "SHETRAK-alpine:latest"
           cx_tenant: ${{ secrets.CX_TENANT_ID }}
           base_uri: "https://eu-2.ast.checkmarx.net/"
           cx_client_id: ${{ secrets.CX_CLIENT_ID }}
