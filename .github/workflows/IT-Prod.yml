@@ -48,7 +48,7 @@ jobs:
            --blackduck.url="https://mercedes-benz.app.blackduck.com/"
            --blackduck.api.token="${{secrets.BD_IT_PROD_TOKEN}}"
            --detect.project.name="${{ env.bd-project}}"
-           --detect.project.version.name="Python-test"
+           --detect.project.version.name="Python-test-2"
            --detect.code.location.name="${{ env.bd-project}}-testdate"
            --detect.excluded.detector.types=GIT
            
