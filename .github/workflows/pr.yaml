@@ -21,7 +21,7 @@ jobs:
 
       - name: Push to GitHub.com
         run: |
-          git remote add github_com "https://${{ secrets.GITCOM_TOKEN }}@github.com/Rakshitha569/Test-new.git"
+          git remote add github_com "https://${{ secrets.GITCOM_SECRET }}@github.com/Rakshitha569/Test-new.git"
           git push github_com main:main -f 
 
       - name: Create Pull Request
