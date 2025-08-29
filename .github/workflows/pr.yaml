@@ -28,7 +28,6 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITCOM_SECRET }}
-          remote-name: github_com
           branch: main
           base: main
           title: 'Sync from Git Enterprise'
