@@ -27,7 +27,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_COM_TOKEN }}
+          token: ${{ secrets.GITCOM_SECRET }}
           remote-name: github_com
           branch: main
           base: main
