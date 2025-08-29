@@ -1,0 +1,35 @@
+name: Create PR to GitHub.com
+
+on:
+  push:
+    branches:
+      - main  # Trigger on commits to the 'main' branch
+
+jobs:
+  create_pr:
+    runs-on: [ small ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Ensure full history is available
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+
+      - name: Push to GitHub.com
+        run: |
+          git remote add github_com "https://${{ secrets.GITCOM_TOKEN }}@github.com/Rakshitha569/Test-new.git"
+          git push github_com main:main -f 
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_COM_TOKEN }}
+          remote-name: github_com
+          branch: main
+          base: main
+          title: 'Sync from Git Enterprise'
+          body: 'This PR syncs changes from the Git Enterprise main branch.'
