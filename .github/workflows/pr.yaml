@@ -28,8 +28,8 @@ jobs:
    #configure git    
       - name: Configure Git
         run: |
-          git config --global user.name '${{ env.GIT_USER_ID }}"'
-          git config --global user.email '${{ env.GIT_USER_EMAIL }}'
+          git config --global user.name 'Rakshitha569'
+          git config --global user.email 'Rakshitha569'
 
       - name: Push to GitHub.com
         run: |
