@@ -16,8 +16,8 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.email "${{ github.actor }}"
-          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "SHETRAK"
+          git config --global user.name "SHETRAK"
 
       - name: Push to GitHub.com
         run: |
