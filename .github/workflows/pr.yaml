@@ -28,7 +28,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITCOM_SECRET }}
-          branch: main
+          branch: test
           base: main
           title: 'Sync from Git Enterprise'
           body: 'This PR syncs changes from the Git Enterprise main branch.'
